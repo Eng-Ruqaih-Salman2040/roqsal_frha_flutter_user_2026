@@ -53,6 +53,13 @@ dependencies:
   #flutter_localizations:
   flutter_localization: ^0.3.3
 
+  #----------------- Firebase Packeges 6/12/2025----------------------
+  #firebase_core: ^4.2.1
+  firebase_core: ^3.0.0
+  #firebase_auth: ^6.1.2
+  firebase_auth: ^5.0.0
+
+
 
 dev_dependencies:
   flutter_launcher_icons:
