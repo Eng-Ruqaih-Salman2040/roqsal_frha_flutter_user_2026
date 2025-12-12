@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../Constants.dart';
 
 class CustomButton extends StatelessWidget {
-   CustomButton({
-    Key ?key, this.onPress, this.text, this.sizeHeight, this.sizeWidth, this.row, this.sizedBoxHeight, this.style, this.disabledColor, this.color, this.fontColor, this.borderColor, this.borderRadius,
- }) : super(key: key);
+  CustomButton({
+    Key ?key, this.onPress, this.text, this.sizeHeight, this.sizeWidth, this.row, this.sizedBoxHeight, this.style, this.disabledColor, this.color, this.fontColor, this.borderColor, this.borderRadius, this.textColor,this.elevation, Icon? icon, this.isLoading,
+  }) : super(key: key);
   final Function()? onPress;
   final String? text;
   final double ?sizeHeight;
@@ -17,7 +17,17 @@ class CustomButton extends StatelessWidget {
   final Color ?color;
   final Color ?fontColor;
   final Color ?borderColor;
-   final sizedBoxHeight;
+  final sizedBoxHeight;
+
+  final Color ?textColor;
+
+  final int ?elevation;
+
+  final isLoading;
+
+
+
+
 
   @override
   Widget build(BuildContext context) {

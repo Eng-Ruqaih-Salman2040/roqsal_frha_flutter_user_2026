@@ -57,59 +57,59 @@ class DashBoardScreen  extends StatelessWidget {
     final themeCollection = ThemeCollection(
         themes: {
           AppThemes.LightBlue: ThemeData(textSelectionTheme: TextSelectionThemeData(
-          cursorColor: kColorsWhite,
+            cursorColor: kColorsWhite,
           ),
-          textTheme: TextTheme(
-          headlineSmall: TextStyle(
-          fontSize: 16.0.sp,
-          // fontWeight: FontWeight.w300,
-          color: kColorsLightBlack
+            textTheme: TextTheme(
+                headlineSmall: TextStyle(
+                    fontSize: 16.0.sp,
+                    // fontWeight: FontWeight.w300,
+                    color: kColorsLightBlack
+                ),
+                headlineMedium: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+                displaySmall: TextStyle(
+                    fontSize: 14.0.sp,
+                    fontWeight: FontWeight.w500,
+                    color: kColorsLightBlack),
+                displayLarge: TextStyle(
+                    fontSize: 20.0.sp,
+                    fontWeight: FontWeight.bold,
+                    color: kColorsBlack),
+                displayMedium: TextStyle(
+                    fontSize: 18.0.sp,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black),
+                titleLarge: TextStyle(
+                    fontSize: 14.0.sp,
+                    fontWeight: FontWeight.w500,
+                    color:Colors.black),
+                bodyMedium:
+                TextStyle(fontSize: 14.0.sp, color: kColorsBlack),
+                bodyLarge: TextStyle(fontSize: 12.0.sp, color: kColorsBlack, fontWeight: FontWeight.w300,),
+                bodySmall: TextStyle(fontSize: 10.0.sp, color: Colors.grey, fontWeight: FontWeight.w300,)
+
+            ),
+            iconTheme: IconThemeData(
+              color: kColorsBlack,
+
+            ),
+            scaffoldBackgroundColor: kColorsDeepWhite,
+            appBarTheme: AppBarTheme(
+                iconTheme: IconThemeData(
+                    color: kColorsBlack
+                ),
+                backgroundColor: kColorsDeepWhite
+            ),
+
+            // primaryIconTheme:IconThemeData( color: kColorsBackground,) ,
+            focusColor: kColorsWhite,
+            hintColor: kColorsWhite,
+            primaryColor: kColorsWhite,
+            fontFamily:  'ArbFONTS-DINNextLTArabic',
+            primarySwatch: Colors.red,
           ),
-          headlineMedium: TextStyle(
-          fontSize: 18.sp,
-          fontWeight: FontWeight.w500,
-          color: Colors.black),
-          displaySmall: TextStyle(
-          fontSize: 14.0.sp,
-          fontWeight: FontWeight.w500,
-          color: kColorsLightBlack),
-          displayLarge: TextStyle(
-          fontSize: 20.0.sp,
-          fontWeight: FontWeight.bold,
-          color: kColorsBlack),
-    displayMedium: TextStyle(
-    fontSize: 18.0.sp,
-    fontWeight: FontWeight.w300,
-    color: Colors.black),
-    titleLarge: TextStyle(
-    fontSize: 14.0.sp,
-    fontWeight: FontWeight.w500,
-    color:Colors.black),
-    bodyMedium:
-    TextStyle(fontSize: 14.0.sp, color: kColorsBlack),
-    bodyLarge: TextStyle(fontSize: 12.0.sp, color: kColorsBlack, fontWeight: FontWeight.w300,),
-    bodySmall: TextStyle(fontSize: 10.0.sp, color: Colors.grey, fontWeight: FontWeight.w300,)
-
-    ),
-    iconTheme: IconThemeData(
-    color: kColorsBlack,
-
-    ),
-    scaffoldBackgroundColor: kColorsDeepWhite,
-    appBarTheme: AppBarTheme(
-    iconTheme: IconThemeData(
-    color: kColorsBlack
-    ),
-    backgroundColor: kColorsDeepWhite
-    ),
-
-    // primaryIconTheme:IconThemeData( color: kColorsBackground,) ,
-    focusColor: kColorsWhite,
-    hintColor: kColorsWhite,
-    primaryColor: kColorsWhite,
-    fontFamily:  'ArbFONTS-DINNextLTArabic',
-    primarySwatch: Colors.red,
-    ),
           AppThemes.LightRed: ThemeData(primarySwatch: Colors.red),
           AppThemes.DarkBlue: dark.copyWith(
               hintColor: Colors.blue,
@@ -139,7 +139,7 @@ class DynamicThemesExampleApp extends StatefulWidget {
 
 class _DashBoardScreenState extends State<DynamicThemesExampleApp> {
 
-   int currentIndex=0;
+  int currentIndex=0;
 
   @override
   void initState() {
@@ -167,27 +167,27 @@ class _DashBoardScreenState extends State<DynamicThemesExampleApp> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-   // dropdownValue = DynamicTheme.of(context)!.themeId;
+    // dropdownValue = DynamicTheme.of(context)!.themeId;
     return Scaffold(
 
-   body: IndexedStack(
-     index: currentIndex,
-     children: [
-       HomeScreen(),
-       MyData.auth_user==true? favoriteScreen():authFavorite(),
-       NotificationsScreen(),
-       ConnectWithUsScreen(),
-      ],
-   ),
+      body: IndexedStack(
+        index: currentIndex,
+        children: [
+          HomeScreen(),
+          MyData.auth_user==true? favoriteScreen():authFavorite(),
+          NotificationsScreen(),
+          ConnectWithUsScreen(),
+        ],
+      ),
 
       ///
       ///tdgtg
       //floatingActionButton: FloatingActionButton(
-        //onPressed: () {
-          //showDialog(
-           //   context: context, builder: (_) => CustomChampionDialog());
-        //},
-       // child: const Icon(Icons.volunteer_activism),
+      //onPressed: () {
+      //showDialog(
+      //   context: context, builder: (_) => CustomChampionDialog());
+      //},
+      // child: const Icon(Icons.volunteer_activism),
       //),
 
       bottomNavigationBar: BubbleBottomBar(
@@ -262,82 +262,85 @@ class _DashBoardScreenState extends State<DynamicThemesExampleApp> {
                 color: Color(0xFF301977),
               ),
               title: Text("Contact us".tr,style: MyText.title(context)?.copyWith(color:Color(
-    0xFFFFFFFF)),))
+                  0xFFFFFFFF)),))
         ],
       ),
     );
   }
 }
-class CustomChampionDialog extends StatefulWidget {
+// class CustomChampionDialog extends StatefulWidget {
+//
+//
+//   @override
+//   CustomChampionDialogState createState() => new CustomChampionDialogState();
+// }
+//
+// class CustomChampionDialogState extends State<CustomChampionDialog> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Dialog(
+//       backgroundColor: Colors.transparent,
+//       child: Container(width: 160,
+//         child: Card(
+//           shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(4),),
+//           color: Color(0xF5383D67),
+//           clipBehavior: Clip.antiAliasWithSaveLayer,
+//           child: Wrap(
+//             children: <Widget>[
+//               Container(
+//                 padding: EdgeInsets.all(20),
+//                 width : double.infinity,
+//                 child: Column(
+//                   children: <Widget>[
+//                     Container(height: 15),
+//                     Text("عزيزي المستخدم لاستعراض خدماتك عبر منصة فرحة يرجى الدخول على موقعنا بنقر على زر موافق", textAlign: TextAlign.center,style: MyText.title(context)?.copyWith(color:Color(
+//                         0xFFA98FF4))),
+//                     Container(height: 70),
+//                     Container(height: 15),
+//                     Text("أو التواصل مع الدعم الفني عبر الارقام التالية",  textAlign: TextAlign.center,style: MyText.title(context)?.copyWith(color: Colors.white)),
+//                     Container(height: 20),
+//                     Text("772200283", textAlign : TextAlign.center, style: MyText.subhead(context)?.copyWith(color: Colors.white70)),
+//                     Text("777385328", textAlign : TextAlign.center, style: MyText.subhead(context)?.copyWith(color: Colors.white70)),
+//                     Container(height: 10),
+//                   ],
+//                 ),
+//               ),
+//               InkWell(
+//                 onTap: () async {
+//                   const url = "https://flutter.io";
+//                   if (await canLaunch(url))
+//                     await launch(url);
+//                   else
+//                     // can't launch url, there is some error
+//                     throw "Could not launch $url";
+//
+//                   // if (await canLaunch("https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php")) {
+//                   //   await launch("https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php");
+//                   // } else {
+//                   //   throw 'Could not launch '+"https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php";
+//                   // }
+//
+//                 },
+//                 child: Container(
+//                   padding: EdgeInsets.all(20),
+//                   width : double.infinity, color:Theme.of(context).primaryColor,
+//                   child: Column(
+//                     children: <Widget>[
+//
+//                       TextButton(onPressed: () {
+//                         Navigator.pop(context);
+//                       }, child: Text("موافق", style: MyText.title(context)?.copyWith(color: Colors.white),), )
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
 
 
-  @override
-  CustomChampionDialogState createState() => new CustomChampionDialogState();
-}
-
-class CustomChampionDialogState extends State<CustomChampionDialog> {
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: Colors.transparent,
-      child: Container(width: 160,
-        child: Card(
-          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(4),),
-          color: Color(0xF5383D67),
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Wrap(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(20),
-                width : double.infinity,
-                child: Column(
-                  children: <Widget>[
-                    Container(height: 15),
-                    Text("عزيزي المستخدم لاستعراض خدماتك عبر منصة فرحة يرجى الدخول على موقعنا بنقر على زر موافق", textAlign: TextAlign.center,style: MyText.title(context)?.copyWith(color:Color(
-                        0xFFA98FF4))),
-                    Container(height: 70),
-                     Container(height: 15),
-                    Text("أو التواصل مع الدعم الفني عبر الارقام التالية",  textAlign: TextAlign.center,style: MyText.title(context)?.copyWith(color: Colors.white)),
-                    Container(height: 20),
-                    Text("772200283", textAlign : TextAlign.center, style: MyText.subhead(context)?.copyWith(color: Colors.white70)),
-                    Text("777385328", textAlign : TextAlign.center, style: MyText.subhead(context)?.copyWith(color: Colors.white70)),
-                    Container(height: 10),
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () async {
-                  const url = "https://flutter.io";
-                  if (await canLaunch(url))
-                    await launch(url);
-                  else
-                    // can't launch url, there is some error
-                    throw "Could not launch $url";
-
-                  // if (await canLaunch("https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php")) {
-                  //   await launch("https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php");
-                  // } else {
-                  //   throw 'Could not launch '+"https://frha2.000webhostapp.com/PHP/Control/C_Login_User.php";
-                  // }
-
-                },
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  width : double.infinity, color:Theme.of(context).primaryColor,
-                  child: Column(
-                    children: <Widget>[
-
-                      TextButton(onPressed: () {
-                        Navigator.pop(context);
-                      }, child: Text("موافق", style: MyText.title(context)?.copyWith(color: Colors.white),), )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

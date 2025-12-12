@@ -22,6 +22,18 @@ class TextFieldWidget extends StatelessWidget {
   final Widget ?inkell;
   final bool isHidden ;
   final bool read ;
+
+  final  FocusNode ?focusNode;
+
+  final EdgeInsets ?contentPadding;
+
+  final Color ?borderColor;
+
+  final  Color ?focusedBorderColor;
+
+  final TextInputAction ?textInputAction;
+
+
   String? _errorMessage(bool str) {
     switch (str) {
       case true:
@@ -38,8 +50,9 @@ class TextFieldWidget extends StatelessWidget {
     this.hint,
     this.controller,
     this.iconData,
-    this.text, this.inkell, this.isHidden=false, this.initialValue, this.requirement, this.maxLine, this.minLine, this.textInputType, this.onChange, this.read=false,
+    this.text, this.inkell, this.isHidden=false, this.initialValue, this.requirement, this.maxLine, this.minLine, this.textInputType, this.onChange, this.read=false, this.focusNode, IconButton? suffixIcon, this.contentPadding, this.borderColor, this.focusedBorderColor,this.textInputAction, Function(String p1)? onFieldSubmitted, String? Function(String? p1)? validator,
   }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
