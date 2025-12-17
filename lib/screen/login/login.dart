@@ -275,37 +275,36 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Logo with gradient
-        Center(
-          child: Container(
-            width: 100.w,
-            height: 100.w,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFAC7FFF),
-                  Color(0xFF4697FF),
-                ],
-              ),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xFFAC7FFF).withOpacity(0.3),
-                  blurRadius: 20,
-                  spreadRadius: 2,
-                ),
-              ],
-            ),
-            child: Center(
-              child: Icon(
-                Icons.person_rounded,
-                color: Colors.white,
-                size: 50.w,
-              ),
-            ),
-          ),
+    Center(
+    child: Container(
+    width: 130.w,
+      height: 130.w,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFFAC7FFF),
+            Color(0xFF4697FF),
+          ],
         ),
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xFFAC7FFF).withOpacity(0.3),
+            blurRadius: 20,
+            spreadRadius: 2,
+          ),
+        ],
+      ),
+      child: Center(
+              child: Image.asset(
+                "assets/logoo.png",
+                width: 150, height: 150,
+              ),
+            ) ),
+        ),
+
         SizedBox(height: 24.h),
 
         // Welcome Text

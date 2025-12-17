@@ -19,6 +19,7 @@ import 'package:loading_indicator/loading_indicator.dart';
 class signUpController extends GetxController with StateMixin<signUpModel> {
 
 
+
   signUpModel?signModel ;
   late TextEditingController name;
   late TextEditingController pass;

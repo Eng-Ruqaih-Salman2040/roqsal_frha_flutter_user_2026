@@ -220,25 +220,40 @@ class _SignUpScreenState extends State<signUpScreen> {
                     SizedBox(height: 32.h),
 
                     // Sign Up Button
-                    Obx(() {
-                      return CustomButton(
-                        text: 'إنشاء حساب',
-                        color: _termsAccepted ? Color(0xFF9169DA) : Colors.grey,
-                        textColor: Colors.white,
-                        isLoading: controller.isLoading.value,
-                        sizeHeight: 56.h,
-                        borderRadius: 28.r,
-                        elevation: 3,
-                        onPress: _handleSignUp,
-                        icon: controller.isLoading.value
-                            ? null
-                            : Icon(
-                          Icons.person_add_alt_1_rounded,
-                          color: Colors.white,
-                          size: 20.w,
-                        ),
-                      );
-                    }),
+                    CustomButton(
+                      text: 'إنشاء حساب',
+                           color: _termsAccepted ? Color(0xFF9169DA): Colors.grey,
+                           textColor: Colors.white,
+                           sizeHeight: 56.h,
+                           borderRadius: 28.r,
+                         elevation: 3,
+                      onPress: () {
+                        if (_formKey.currentState!.validate()) {
+                          controller.postApi();
+
+                        }
+
+                      },
+                    ),
+                    // Obx(() {
+                    //   return CustomButton(
+                    //     text: 'إنشاء حساب',
+                    //     color: _termsAccepted ? Color(0xFF9169DA) : Colors.grey,
+                    //     textColor: Colors.white,
+                    //     isLoading: controller.isLoading.value,
+                    //     sizeHeight: 56.h,
+                    //     borderRadius: 28.r,
+                    //     elevation: 3,
+                    //     onPress: _handleSignUp,
+                    //     icon: controller.isLoading.value
+                    //         ? null
+                    //         : Icon(
+                    //       Icons.person_add_alt_1_rounded,
+                    //       color: Colors.white,
+                    //       size: 20.w,
+                    //     ),
+                    //   );
+                    // }),
                     SizedBox(height: 24.h),
 
                     // Already have account
