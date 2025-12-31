@@ -57,21 +57,20 @@ class Shop {
         this.price,
         this.viewer});
 
-  factory Shop.fromJson(Map<String, dynamic> json) {
-    return Shop(
-      // تأكد أن جميع الخصائص النصية تأخذ قيم نصية
-      id: json['id']?.toString() ?? '', // التحويل إلى نص
-      price: json['price']?.toString() ?? '', // التحويل إلى نص
-      viewer: json['viewer']?.toString() ?? '', // التحويل إلى نص
-      phone: json['phone']?.toString() ?? '', // التحويل إلى نص
-      email: json['email']?.toString() ?? '', // التحويل إلى نص
-      cityName: json['cityName']?.toString() ?? '',
-      adress: json['adress']?.toString() ?? '',
-      sectionName: json['sectionName']?.toString() ?? '',
-      description: json['description']?.toString() ?? '',
-      image: json['image']?.toString() ?? '',
-      // ... باقي الخصائص
-    );
+  Shop.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    userName = json['user_name'];
+    passowrd = json['passowrd'];
+    nameShop = json['name_shop'];
+    cityName = json['city_name'];
+    sectionName = json['section_name'];
+    adress = json['adress'];
+    email = json['email'];
+    phone = json['phone'];
+    image = json['image'];
+    description = json['description'];
+    price = json['price'];
+    viewer = json['viewer'];
   }
 
   Map<String, dynamic> toJson() {
@@ -91,7 +90,4 @@ class Shop {
     data['viewer'] = this.viewer;
     return data;
   }
-
-
-
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -9,6 +10,7 @@ import '../../widget/custom_textfeild.dart';
 import '../../widget/my_colors.dart';
 import '../../widget/my_text.dart';
 import '../sign_up/sign_up.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -24,6 +26,28 @@ class _LoginScreenState extends State<LoginScreen> {
   // Focus nodes for better keyboard navigation
   final FocusNode _usernameFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
+
+  //SignIn With Google
+  Future signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    if(googleUser==null){
+      return;
+    }
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+     await FirebaseAuth.instance.signInWithCredential(credential);
+     Get.offAllNamed(RoutingApp.dashBoardScreenRoute);
+  }
+
 
   void _togglePasswordView() {
     setState(() {
@@ -485,6 +509,7 @@ class _LoginScreenState extends State<LoginScreen> {
           color: Colors.red,
           onTap: () {
             // TODO: Implement Google login
+            signInWithGoogle();
           },
         ),
         SizedBox(width: 16.w),
