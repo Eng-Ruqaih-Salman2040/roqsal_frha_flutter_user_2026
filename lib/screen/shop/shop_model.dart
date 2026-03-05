@@ -58,20 +58,21 @@ class Shop {
         this.viewer});
 
   Shop.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    userName = json['user_name'];
-    passowrd = json['passowrd'];
-    nameShop = json['name_shop'];
-    cityName = json['city_name'];
-    sectionName = json['section_name'];
-    adress = json['adress'];
-    email = json['email'];
-    phone = json['phone'];
-    image = json['image'];
-    description = json['description'];
-    price = json['price'];
-    viewer = json['viewer'];
+    id = json['id']?.toString();
+    userName = json['user_name']?.toString();
+    passowrd = json['passowrd']?.toString();
+    nameShop = json['name_shop']?.toString();
+    cityName = json['city_name']?.toString();
+    sectionName = json['section_name']?.toString();
+    adress = json['adress']?.toString();
+    email = json['email']?.toString();
+    phone = json['phone']?.toString() ?? '';
+    image = json['image']?.toString();
+    description = json['description']?.toString();
+    price = json['price']?.toString();
+    viewer = json['viewer']?.toString();
   }
+
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -90,4 +91,7 @@ class Shop {
     data['viewer'] = this.viewer;
     return data;
   }
+
+
+
 }

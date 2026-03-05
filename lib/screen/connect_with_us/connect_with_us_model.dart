@@ -6,7 +6,7 @@ class Connect_with_usModel {
       {
         this.success,
         this.message,
-       });
+      });
 
   Connect_with_usModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];

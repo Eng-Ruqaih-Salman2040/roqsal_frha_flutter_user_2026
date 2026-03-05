@@ -14,28 +14,26 @@ class sectionScreen extends GetWidget<sectionController> {
   @override
   Widget build(BuildContext context) {
     return  controller.obx((data)
-        => data!.section!.length > 0 ?
-
-        GridView.count(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          // primary: false,
-          // shrinkWrap: true,
-          // physics: NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
-        padding: EdgeInsets.all(10),
-    // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-    // maxCrossAxisExtent: 200,
-    // childAspectRatio: 6/ 9,
-    // // mainAxisSpacing: 10,
-    // // crossAxisSpacing: 10,
-    // ),
-    children: data.section!.map((item) =>
-    Item(item))
-        .toList(),
+    => data!.section!.length > 0 ?GridView.count(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      // primary: false,
+      // shrinkWrap: true,
+      // physics: NeverScrollableScrollPhysics(),
+      crossAxisCount: 3,
+      padding: EdgeInsets.all(10),
+      // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      // maxCrossAxisExtent: 200,
+      // childAspectRatio: 6/ 9,
+      // // mainAxisSpacing: 10,
+      // // crossAxisSpacing: 10,
+      // ),
+      children: data.section!.map((item) =>
+          Item(item))
+          .toList(),
 
     ):noItem(),
-      )
+    )
     ;
-      }
-        }
+  }
+}

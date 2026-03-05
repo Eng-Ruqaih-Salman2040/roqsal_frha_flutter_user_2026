@@ -9,7 +9,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../screen/section/section_controller.dart';
 import '../../screen/sliderAds/ads_controller.dart';
 
-
 import '../Constants.dart';
 import '../theme_example.dart';
 import '../widget/auth_favorite.dart';
@@ -342,5 +341,4 @@ class _DashBoardScreenState extends State<DynamicThemesExampleApp> {
 //   }
 // }
 //
-
 

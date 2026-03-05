@@ -35,28 +35,28 @@ class connect_with_usController extends GetxController with StateMixin<Connect_w
   postApi(){
 
 
-   // Get.dialog(Center(child: Container(height: 100,width: 100,child: CircularProgressIndicator(),)));
-     Get.dialog(Center(child: CircularProgressIndicator(),));
+    // Get.dialog(Center(child: Container(height: 100,width: 100,child: CircularProgressIndicator(),)));
+    Get.dialog(Center(child: CircularProgressIndicator(),));
 
     ApiService().postDataForm(url:'?checkopration=Technical_Support&students_id=1'+'&name=${name.text.trim()}'+'&email=${email.text.trim()}'+'&subject=${subject.text.trim()}'+'&message=${message.text.trim()}').then((value) {
       if(value.statusCode==200) {
         print(value.data);
-     //   print(value.data["success"]);
+        //   print(value.data["success"]);
         Connect_with_usModel loginModel =  Connect_with_usModel.fromJson(json.decode(value.data));
         print(value.data);
         print(loginModel.success);
-if(loginModel.success==true){
-  Connect_with_usModel loginModel =  Connect_with_usModel.fromJson(json.decode(value.data));
-  Get.back();
-        //Get.offAllNamed(RoutingApp.dashBoardScreenRoute,);
-  print("aaaaa");
-        print(value.data);
+        if(loginModel.success==true){
+          Connect_with_usModel loginModel =  Connect_with_usModel.fromJson(json.decode(value.data));
+          Get.back();
+          //Get.offAllNamed(RoutingApp.dashBoardScreenRoute,);
+          print("aaaaa");
+          print(value.data);
 
 
 
-        update();}else{
-  print('errr');
-}
+          update();}else{
+          print('errr');
+        }
 
 
       }

@@ -145,9 +145,10 @@ class Item extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Card(
-        color: Colors.white10,
+        color: Color(0xF59197CF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         clipBehavior: Clip.antiAliasWithSaveLayer,
+
         child: Padding(
           padding: const EdgeInsets.all(1.0),
           child: Column(

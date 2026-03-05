@@ -13,6 +13,7 @@ import '../widget/customButton.dart';
 import '../widget/menu_widget2.dart';
 import '../widget/my_text.dart';
 import '../widget/scrolling_photo.dart';
+import 'aiscreen/chatbot_scerrn.dart';
 import 'allShop/allShop.dart';
 import 'allShop/allShop_controller.dart';
 import 'login/login_model.dart';
@@ -52,158 +53,158 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  Widget _buildSearchBar() {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      height: _showSearchBar ? 60.h : 0,
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-      decoration: BoxDecoration(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 10,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: _showSearchBar
-          ? Row(
-        children: [
-          Expanded(
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: 'ابحث عن منتج، متجر، أو خدمة...',
-                hintStyle: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 14.sp,
-                ),
-                prefixIcon: Icon(Iconsax.search_normal, size: 20),
-                suffixIcon: IconButton(
-                  icon: Icon(Iconsax.filter, size: 20),
-                  onPressed: () {
-                    // Filter action
-                  },
-                ),
-                filled: true,
-                fillColor: Theme.of(context).cardColor,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.r),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 16.w,
-                  vertical: 12.h,
-                ),
-              ),
-              style: TextStyle(fontSize: 14.sp),
-              onSubmitted: (value) {
-                // Handle search
-              },
-            ),
-          ),
-          SizedBox(width: 12.w),
-          IconButton(
-            icon: Icon(Iconsax.close_circle, size: 24),
-            onPressed: () {
-              setState(() {
-                _showSearchBar = false;
-                _searchController.clear();
-              });
-            },
-          ),
-        ],
-      )
-          : SizedBox.shrink(),
-    );
-  }
+  // Widget _buildSearchBar() {
+  //   return AnimatedContainer(
+  //     duration: Duration(milliseconds: 300),
+  //     height: _showSearchBar ? 60.h : 0,
+  //     padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+  //     decoration: BoxDecoration(
+  //       color: Theme.of(context).scaffoldBackgroundColor,
+  //       boxShadow: [
+  //         BoxShadow(
+  //           color: Colors.black.withOpacity(0.05),
+  //           blurRadius: 10,
+  //           offset: Offset(0, 2),
+  //         ),
+  //       ],
+  //     ),
+  //     child: _showSearchBar
+  //         ? Row(
+  //       children: [
+  //         Expanded(
+  //           child: TextField(
+  //             controller: _searchController,
+  //             decoration: InputDecoration(
+  //               hintText: 'ابحث عن منتج، متجر، أو خدمة...',
+  //               hintStyle: TextStyle(
+  //                 color: Colors.grey[600],
+  //                 fontSize: 14.sp,
+  //               ),
+  //               prefixIcon: Icon(Iconsax.search_normal, size: 20),
+  //               suffixIcon: IconButton(
+  //                 icon: Icon(Iconsax.filter, size: 20),
+  //                 onPressed: () {
+  //                   // Filter action
+  //                 },
+  //               ),
+  //               filled: true,
+  //               fillColor: Theme.of(context).cardColor,
+  //               border: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(12.r),
+  //                 borderSide: BorderSide.none,
+  //               ),
+  //               contentPadding: EdgeInsets.symmetric(
+  //                 horizontal: 16.w,
+  //                 vertical: 12.h,
+  //               ),
+  //             ),
+  //             style: TextStyle(fontSize: 14.sp),
+  //             onSubmitted: (value) {
+  //               // Handle search
+  //             },
+  //           ),
+  //         ),
+  //         SizedBox(width: 12.w),
+  //         IconButton(
+  //           icon: Icon(Iconsax.close_circle, size: 24),
+  //           onPressed: () {
+  //             setState(() {
+  //               _showSearchBar = false;
+  //               _searchController.clear();
+  //             });
+  //           },
+  //         ),
+  //       ],
+  //     )
+  //         : SizedBox.shrink(),
+  //   );
+  // }
 
-  Widget _buildHeader() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'مرحباً بك 👋',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: Colors.grey[600],
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(height: 4.h),
-              Text(
-                'ماذا تبحث عنه اليوم؟',
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              IconButton(
-                icon: Icon(
-                  _showSearchBar ? Iconsax.search_normal_1 : Iconsax.search_normal,
-                  color: Theme.of(context).primaryColor,
-                  size: 24,
-                ),
-                onPressed: () {
-                  setState(() {
-                    _showSearchBar = !_showSearchBar;
-                  });
-                },
-              ),
-              SizedBox(width: 8.w),
-              Stack(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Iconsax.notification,
-                      color: Theme.of(context).primaryColor,
-                      size: 24,
-                    ),
-                    onPressed: () {
-                      Get.put(NotificationsController()).getNotificationsApi();
-                      Get.to(() => NotificationsScreen());
-                    },
-                  ),
-                  Positioned(
-                    right: 8,
-                    top: 8,
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildHeader() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(
+  //               'مرحباً بك 👋',
+  //               style: TextStyle(
+  //                 fontSize: 14.sp,
+  //                 color: Colors.grey[600],
+  //                 fontWeight: FontWeight.w500,
+  //               ),
+  //             ),
+  //             SizedBox(height: 4.h),
+  //             Text(
+  //               'ماذا تبحث عنه اليوم؟',
+  //               style: TextStyle(
+  //                 fontSize: 20.sp,
+  //                 fontWeight: FontWeight.bold,
+  //                 color: Theme.of(context).primaryColor,
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //         Row(
+  //           children: [
+  //             IconButton(
+  //               icon: Icon(
+  //                 _showSearchBar ? Iconsax.search_normal_1 : Iconsax.search_normal,
+  //                 color: Theme.of(context).primaryColor,
+  //                 size: 24,
+  //               ),
+  //               onPressed: () {
+  //                 setState(() {
+  //                   _showSearchBar = !_showSearchBar;
+  //                 });
+  //               },
+  //             ),
+  //             SizedBox(width: 8.w),
+  //             Stack(
+  //               children: [
+  //                 IconButton(
+  //                   icon: Icon(
+  //                     Iconsax.notification,
+  //                     color: Theme.of(context).primaryColor,
+  //                     size: 24,
+  //                   ),
+  //                   onPressed: () {
+  //                     Get.put(NotificationsController()).getNotificationsApi();
+  //                     Get.to(() => NotificationsScreen());
+  //                   },
+  //                 ),
+  //                 Positioned(
+  //                   right: 8,
+  //                   top: 8,
+  //                   child: Container(
+  //                     width: 8,
+  //                     height: 8,
+  //                     decoration: BoxDecoration(
+  //                       color: Colors.red,
+  //                       shape: BoxShape.circle,
+  //                     ),
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildCategories() {
     final List<Map<String, dynamic>> categories = [
-      {'icon': Iconsax.shop, 'label': 'المتاجر', 'color': Color(0xFF6C63FF)},
-      {'icon': Iconsax.ticket, 'label': 'العروض', 'color': Color(0xFFFF6584)},
-      {'icon': Iconsax.cake, 'label': 'الحلويات', 'color': Color(0xFF36B37E)},
-      {'icon': Iconsax.coffee, 'label': 'المقاهي', 'color': Color(0xFFFFB74D)},
-      {'icon': Iconsax.gift, 'label': 'الهدايا', 'color': Color(0xFF9575CD)},
-      {'icon': Iconsax.more, 'label': 'المزيد', 'color': Color(0xFF78909C)},
+      {'icon': Iconsax.shop, 'label': 'المتاجر', 'color': Color(0xFF4736FF)},
+      {'icon': Iconsax.ticket, 'label': 'العروض', 'color': Color(0xFFFF4067)},
+      {'icon': Iconsax.cake, 'label': 'الحلويات', 'color': Color(0xFF237C58)},
+      {'icon': Iconsax.coffee, 'label': 'المقاهي', 'color': Color(0xFFFFB341)},
+      {'icon': Iconsax.gift, 'label': 'الهدايا', 'color': Color(0xFF8E4CFF)},
+      {'icon': Iconsax.more, 'label': 'المزيد', 'color': Color(0xFF414D55)},
     ];
 
     return Container(
@@ -217,24 +218,12 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'التصنيفات السريعة',
                 style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xF57E87CD)
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  // View all categories
-                },
-                child: Text(
-                  'عرض الكل',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.grey[600],
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+
             ],
           ),
           SizedBox(height: 12.h),
@@ -255,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
+                    color: Color(0xF59197CF),
                     borderRadius: BorderRadius.circular(16.r),
                     boxShadow: [
                       BoxShadow(
@@ -287,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white70,
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -314,9 +303,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'العروض المميزة',
                 style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xF57E87CD)
                 ),
               ),
               Container(
@@ -332,9 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       'محدودة الوقت',
                       style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                        color: Theme.of(context).primaryColor,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xF57E87CD)
                       ),
                     ),
                   ],
@@ -375,6 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Positioned(
                         right: 16.w,
                         top: 16.h,
+
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -444,245 +434,252 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildAdsCarousel() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 8.h),
-      child: Column(
-        children: [
-          CarouselSlider.builder(
+  // Widget _buildAdsCarousel() {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: 8.h),
+  //     child: Column(
+  //       children: [
+  //         CarouselSlider.builder(
+  //
+  //           options: CarouselOptions(
+  //             height: 180.h,
+  //             autoPlay: true,
+  //             enlargeCenterPage: true,
+  //             aspectRatio: 16 / 9,
+  //             autoPlayInterval: Duration(seconds: 5),
+  //             autoPlayAnimationDuration: Duration(milliseconds: 800),
+  //             enableInfiniteScroll: true,
+  //             viewportFraction: 0.85,
+  //             onPageChanged: (index, reason) {
+  //               setState(() {
+  //                 _currentCarouselIndex = index;
+  //               });
+  //             },
+  //           ),
+  //           itemCount: 5,
+  //           itemBuilder: (context, index, realIndex) {
+  //             return Container(
+  //               margin: EdgeInsets.symmetric(horizontal: 4.w),
+  //               decoration: BoxDecoration(
+  //                 borderRadius: BorderRadius.circular(16.r),
+  //                 color: Theme.of(context).cardColor,
+  //                 boxShadow: [
+  //                   BoxShadow(
+  //                     color: Colors.black.withOpacity(0.1),
+  //                     blurRadius: 10,
+  //                     offset: Offset(0, 4),
+  //                   ),
+  //                 ],
+  //               ),
+  //               child: ClipRRect(
+  //                 borderRadius: BorderRadius.circular(16.r),
+  //                 child: Image.asset(
+  //                   'assets/images/ad_${index + 1}.jpg',
+  //                   fit: BoxFit.cover,
+  //                   errorBuilder: (context, error, stackTrace) {
+  //                     return Container(
+  //                       color: Theme.of(context).primaryColor.withOpacity(0.1),
+  //                       child: Center(
+  //                         child: Icon(
+  //                           Iconsax.image,
+  //                           size: 50,
+  //                           color: Theme.of(context).primaryColor.withOpacity(0.5),
+  //                         ),
+  //                       ),
+  //                     );
+  //                   },
+  //                 ),
+  //               ),
+  //             );
+  //           },
+  //         ),
+  //         SizedBox(height: 12.h),
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: List.generate(
+  //             5,
+  //                 (index) => Container(
+  //               width: 8.w,
+  //               height: 8.w,
+  //               margin: EdgeInsets.symmetric(horizontal: 4.w),
+  //               decoration: BoxDecoration(
+  //                 shape: BoxShape.circle,
+  //                 color: _currentCarouselIndex == index
+  //                     ? Theme.of(context).primaryColor
+  //                     : Colors.grey[300],
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
-            options: CarouselOptions(
-              height: 180.h,
-              autoPlay: true,
-              enlargeCenterPage: true,
-              aspectRatio: 16 / 9,
-              autoPlayInterval: Duration(seconds: 5),
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
-              enableInfiniteScroll: true,
-              viewportFraction: 0.85,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _currentCarouselIndex = index;
-                });
-              },
-            ),
-            itemCount: 5,
-            itemBuilder: (context, index, realIndex) {
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 4.w),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.r),
-                  color: Theme.of(context).cardColor,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16.r),
-                  child: Image.asset(
-                    'assets/images/ad_${index + 1}.jpg',
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Theme.of(context).primaryColor.withOpacity(0.1),
-                        child: Center(
-                          child: Icon(
-                            Iconsax.image,
-                            size: 50,
-                            color: Theme.of(context).primaryColor.withOpacity(0.5),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-          SizedBox(height: 12.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              5,
-                  (index) => Container(
-                width: 8.w,
-                height: 8.w,
-                margin: EdgeInsets.symmetric(horizontal: 4.w),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _currentCarouselIndex == index
-                      ? Theme.of(context).primaryColor
-                      : Colors.grey[300],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildPopularStores() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'المتاجر الشائعة',
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Get.to(() => allShopScreen());
-                },
-                child: Row(
-                  children: [
-                    Text(
-                      'عرض الكل',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        color: Colors.grey[600],
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    SizedBox(width: 4.w),
-                    Icon(
-                      Iconsax.arrow_left_2,
-                      size: 16,
-                      color: Colors.grey[600],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 16.h),
-          Container(
-            height: 140.h,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 8,
-              itemBuilder: (context, index) {
-                return Container(
-                  width: 120.w,
-                  margin: EdgeInsets.only(left: index == 0 ? 0 : 12.w),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.circular(16.r),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
-                        blurRadius: 8,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 80.h,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(16.r),
-                          ),
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/store_${index + 1}.jpg'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 8.h,
-                              right: 8.w,
-                              child: Container(
-                                padding: EdgeInsets.all(4.w),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      blurRadius: 4,
-                                    ),
-                                  ],
-                                ),
-                                child: Icon(
-                                  Iconsax.heart,
-                                  size: 16,
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.w),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'اسم المتجر',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              maxLines: 1,
-                            ),
-                            SizedBox(height: 4.h),
-                            Row(
-                              children: [
-                                Icon(
-                                  Iconsax.star1,
-                                  size: 14,
-                                  color: Colors.amber,
-                                ),
-                                SizedBox(width: 4.w),
-                                Text(
-                                  '4.5',
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    color: Colors.grey[600],
-                                  ),
-                                ),
-                                Spacer(),
-                                Text(
-                                  '١٠٠+',
-                                  style: TextStyle(
-                                    fontSize: 12.sp,
-                                    color: Colors.grey[600],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+
+
+
+
+
+
+  // Widget _buildPopularStores() {
+  //   return Container(
+  //     padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Text(
+  //               'المتاجر الشائعة',
+  //               style: TextStyle(
+  //                 fontSize: 18.sp,
+  //                 fontWeight: FontWeight.bold,
+  //                 color: Theme.of(context).primaryColor,
+  //               ),
+  //             ),
+  //             TextButton(
+  //               onPressed: () {
+  //                 Get.to(() => allShopScreen());
+  //               },
+  //               child: Row(
+  //                 children: [
+  //                   Text(
+  //                     'عرض الكل',
+  //                     style: TextStyle(
+  //                       fontSize: 14.sp,
+  //                       color: Colors.grey[600],
+  //                       fontWeight: FontWeight.w500,
+  //                     ),
+  //                   ),
+  //                   SizedBox(width: 4.w),
+  //                   Icon(
+  //                     Iconsax.arrow_left_2,
+  //                     size: 16,
+  //                     color: Colors.grey[600],
+  //                   ),
+  //                 ],
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //         SizedBox(height: 16.h),
+  //         Container(
+  //           height: 140.h,
+  //           child: ListView.builder(
+  //             scrollDirection: Axis.horizontal,
+  //             itemCount: 8,
+  //             itemBuilder: (context, index) {
+  //               return Container(
+  //                 width: 120.w,
+  //                 margin: EdgeInsets.only(left: index == 0 ? 0 : 12.w),
+  //                 decoration: BoxDecoration(
+  //                   color: Theme.of(context).cardColor,
+  //                   borderRadius: BorderRadius.circular(16.r),
+  //                   boxShadow: [
+  //                     BoxShadow(
+  //                       color: Colors.black.withOpacity(0.05),
+  //                       blurRadius: 8,
+  //                       offset: Offset(0, 2),
+  //                     ),
+  //                   ],
+  //                 ),
+  //                 child: Column(
+  //                   children: [
+  //                     Container(
+  //                       height: 80.h,
+  //                       width: double.infinity,
+  //                       decoration: BoxDecoration(
+  //                         borderRadius: BorderRadius.vertical(
+  //                           top: Radius.circular(16.r),
+  //                         ),
+  //                         image: DecorationImage(
+  //                           image: AssetImage('assets/images/store_${index + 1}.jpg'),
+  //                           fit: BoxFit.cover,
+  //                         ),
+  //                       ),
+  //                       child: Stack(
+  //                         children: [
+  //                           Positioned(
+  //                             top: 8.h,
+  //                             right: 8.w,
+  //                             child: Container(
+  //                               padding: EdgeInsets.all(4.w),
+  //                               decoration: BoxDecoration(
+  //                                 color: Colors.white,
+  //                                 shape: BoxShape.circle,
+  //                                 boxShadow: [
+  //                                   BoxShadow(
+  //                                     color: Colors.black.withOpacity(0.1),
+  //                                     blurRadius: 4,
+  //                                   ),
+  //                                 ],
+  //                               ),
+  //                               child: Icon(
+  //                                 Iconsax.heart,
+  //                                 size: 16,
+  //                                 color: Colors.red,
+  //                               ),
+  //                             ),
+  //                           ),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                     Padding(
+  //                       padding: EdgeInsets.all(8.w),
+  //                       child: Column(
+  //                         crossAxisAlignment: CrossAxisAlignment.start,
+  //                         children: [
+  //                           Text(
+  //                             'اسم المتجر',
+  //                             style: TextStyle(
+  //                               fontSize: 14.sp,
+  //                               fontWeight: FontWeight.bold,
+  //                               overflow: TextOverflow.ellipsis,
+  //                             ),
+  //                             maxLines: 1,
+  //                           ),
+  //                           SizedBox(height: 4.h),
+  //                           Row(
+  //                             children: [
+  //                               Icon(
+  //                                 Iconsax.star1,
+  //                                 size: 14,
+  //                                 color: Colors.amber,
+  //                               ),
+  //                               SizedBox(width: 4.w),
+  //                               Text(
+  //                                 '4.5',
+  //                                 style: TextStyle(
+  //                                   fontSize: 12.sp,
+  //                                   color: Colors.grey[600],
+  //                                 ),
+  //                               ),
+  //                               Spacer(),
+  //                               Text(
+  //                                 '١٠٠+',
+  //                                 style: TextStyle(
+  //                                   fontSize: 12.sp,
+  //                                   color: Colors.grey[600],
+  //                                 ),
+  //                               ),
+  //                             ],
+  //                           ),
+  //                         ],
+  //                       ),
+  //                     ),
+  //                   ],
+  //                 ),
+  //               );
+  //             },
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   // Widget _buildTodayOffers() {
   //   return Container(
@@ -874,9 +871,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 'الأقسام',
                 style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xF57E87CD)
                 ),
               ),
               IconButton(
@@ -910,6 +907,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ]
+
       ),
       drawer: drawerWidget(),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -926,10 +924,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 // _buildHeader(),
                 // _buildSearchBar(),
-                _buildAdsCarousel(),
+                // _buildAdsCarousel(),
+                SizedBox(height: 16.h),
+                adsScreen(),
                 _buildCategories(),
                 _buildFeaturedSection(),
-                _buildPopularStores(),
+                // _buildPopularStores(),
                 // _buildTodayOffers(),
                 _buildSections(),
                 SizedBox(height: 100.h), // Space for bottom navigation
@@ -939,19 +939,18 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _scrollController.animateTo(
-            0,
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-          );
-        },
-        backgroundColor: Theme.of(context).primaryColor,
-        child: Icon(Iconsax.arrow_up_2, color: Colors.white),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.r),
-        ),
-      ),
+          onPressed: () async {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const SimpleChatScreen();
+            }));
+          },
+          elevation: 10,
+          backgroundColor: Color(0xFFFFFFFF),
+          tooltip: "Chat with Broxi",
+          child: Icon(Iconsax.device_message,
+            color: Color(0xF57E87CD),
+          )),
     );
   }
 }
+

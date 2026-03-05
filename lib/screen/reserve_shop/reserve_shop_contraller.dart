@@ -21,12 +21,12 @@ class reserveShopController extends GetxController with StateMixin<reserveShopMo
   late TextEditingController booking_date;
   late TextEditingController note;
 
-    late LoginModel loginModle;
+  late LoginModel loginModle;
   void onInit() async{
     // TODO: implement onInit
     super.onInit();
-     loginModle=   LoginModel.fromJson(GetStorage().read('store'));
-       print(loginModle.id);
+    loginModle=   LoginModel.fromJson(GetStorage().read('store'));
+    print(loginModle.id);
 
     bond_no=TextEditingController();
     booking_date=TextEditingController();
@@ -38,28 +38,28 @@ class reserveShopController extends GetxController with StateMixin<reserveShopMo
   postApi(String shop_id,String bank_id,String customers_id){
 
 
-   // Get.dialog(Center(child: Container(height: 100,width: 100,child: CircularProgressIndicator(),)));
-     Get.dialog(Center(child: CircularProgressIndicator(),));
+    // Get.dialog(Center(child: Container(height: 100,width: 100,child: CircularProgressIndicator(),)));
+    Get.dialog(Center(child: CircularProgressIndicator(),));
 
     ApiService().postDataForm(url:'?checkopration=Reserve_shop&customers_id=${customers_id.trim()}'+'&bank_id=${bank_id.trim()}'+'&bond_no=${bond_no.text.trim()}'+'&shop_id=${shop_id.trim()}'+'&note=${note.text.trim()}'+'&booking_date=${booking_date.text.trim()}').then((value) {
       if(value.statusCode==200) {
         print(value.data);
-     //   print(value.data["success"]);
+        //   print(value.data["success"]);
         reserveShopModel loginModel =  reserveShopModel.fromJson(json.decode(value.data));
         print(value.data);
         print(loginModel.success);
-if(loginModel.success==true){
-  //reserveShopModel loginModel =  reserveShopModel.fromJson(json.decode(value.data));
-  // Get.back();
-        Get.offAllNamed(RoutingApp.dashBoardScreenRoute,);
-  print("aaaaa");
-        print(value.data);
+        if(loginModel.success==true){
+          //reserveShopModel loginModel =  reserveShopModel.fromJson(json.decode(value.data));
+          // Get.back();
+          Get.offAllNamed(RoutingApp.dashBoardScreenRoute,);
+          print("aaaaa");
+          print(value.data);
 
 
 
-        update();}else{
-  print('errr');
-}
+          update();}else{
+          print('errr');
+        }
 
 
       }

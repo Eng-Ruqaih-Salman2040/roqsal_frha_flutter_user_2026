@@ -19,7 +19,7 @@ class reservationsController extends GetxController
     change(null, status: RxStatus.loading());
     ApiService()
         .getData('?checkopration=load_Data_reservations&id=${id.trim()}' +
-            '&reservation_status=${reservation_status.trim()}')
+        '&reservation_status=${reservation_status.trim()}')
         .then((value) {
       if (value.statusCode == 200) {
         print("aa");
@@ -27,7 +27,7 @@ class reservationsController extends GetxController
         print(value.data);
 
         reservationsModel data =
-            reservationsModel.fromJson(json.decode(value.data));
+        reservationsModel.fromJson(json.decode(value.data));
         if (reservation_status == "0")
           MyData.Number_of_Reservations_0 =
               data.reservations!.length.toString();

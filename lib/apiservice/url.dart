@@ -4,8 +4,8 @@
  //--->    const urlApi = 'http://192.168.1.110:8080/student/frha2/';
 //const urlApi = 'http://10.0.2.2/frha_admin_roqsal_2026/';
 //const urlApi = 'http://192.168.0.196/frha_admin_roqsal_2026/';
+// const urlApi = 'http://10.0.2.2/roqsal_frha_flutter_admin_2026/';
 const urlApi = 'http://10.0.2.2/roqsal_frha_flutter_admin_2026/';
-
 
 
 const urlBase = urlApi+'PHP/api.php';

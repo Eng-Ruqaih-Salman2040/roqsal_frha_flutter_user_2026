@@ -53,18 +53,18 @@ class Reservations {
         this.accountName,this.image,this.section_name,this.price});
 
   Reservations.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id']?.toString();
     bookingDate = json['booking_date'];
-    reservationStatus = json['reservation_status'];
+    reservationStatus = json['reservation_status']?.toString();
     note = json['note'];
-    bondNo = json['bond_no'];
+    bondNo = json['bond_no']?.toString();
     name = json['name'];
     email = json['email'];
-    phone = json['phone'];
+    phone = json['phone']?.toString();
     accountName = json['account_name'];
     image = json['image'];
     section_name = json['section_name'];
-    price = json['price'];
+    price = json['price']?.toString();
 
 
   }

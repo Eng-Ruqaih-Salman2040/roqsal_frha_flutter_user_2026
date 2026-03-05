@@ -36,11 +36,11 @@ class paymentMethodController extends GetxController with StateMixin<paymentMeth
 
 
       if(value.statusCode==200) {
- print("aa");
+        print("aa");
 
-print(value.data);
+        print(value.data);
 
- paymentMethodModel data =  paymentMethodModel.fromJson(json.decode(value.data));
+        paymentMethodModel data =  paymentMethodModel.fromJson(json.decode(value.data));
 
 
         print(value.data);

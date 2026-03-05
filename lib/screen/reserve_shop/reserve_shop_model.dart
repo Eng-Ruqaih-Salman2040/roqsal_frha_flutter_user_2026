@@ -6,7 +6,7 @@ class reserveShopModel {
       {
         this.success,
         this.message,
-       });
+      });
 
   reserveShopModel.fromJson(Map<String, dynamic> json) {
     success = json['success'];

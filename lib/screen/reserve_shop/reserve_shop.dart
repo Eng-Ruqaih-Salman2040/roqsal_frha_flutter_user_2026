@@ -46,16 +46,18 @@ class TabsScrollRouteState extends State<reserveShopScreen> with SingleTickerPro
 
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: kColorsPrimary,
-          title: Text("بيانات الحجز"),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+
+        title: Text("بيانات الحجز",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,
+            color: Colors.white,),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
 
       ),
+
       body:  SingleChildScrollView(
         padding: EdgeInsets.all(15),
         scrollDirection: Axis.vertical,
@@ -67,9 +69,10 @@ class TabsScrollRouteState extends State<reserveShopScreen> with SingleTickerPro
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                 CustomDatePaker(hint: 'التاريخ',onchange: (value) {
 
-                   },controller: controller.booking_date,),
+                  CustomDatePaker(hint: 'التاريخ',onchange: (value) {
+
+                  },controller: controller.booking_date,),
                   SizedBox(height: 10.w,),
 
                   TextFieldWidget(
@@ -104,12 +107,15 @@ class TabsScrollRouteState extends State<reserveShopScreen> with SingleTickerPro
                     requirement: true,
                     maxLine: 12,
                     minLine: 7,
+
                   ),
 
+                  SizedBox(height: 20.h),
 
 
-                  Container(height: 10),
+
                   CustomButton(
+                    color: Color(0xF59197CF),
                     text: "Send".tr,
                     onPress: () {
                       // GetStorage().remove(url);
@@ -122,7 +128,8 @@ class TabsScrollRouteState extends State<reserveShopScreen> with SingleTickerPro
                         //   print("loginModle");
                         print(controller.loginModle.id);
 
-                        controller.postApi(this.data_shop.id,this.data_payment.id,controller.loginModle.id.toString());
+                        controller.postApi(this.data_shop.id.toString(),
+                            this.data_payment.id.toString(),controller.loginModle.id.toString());
 
 
 

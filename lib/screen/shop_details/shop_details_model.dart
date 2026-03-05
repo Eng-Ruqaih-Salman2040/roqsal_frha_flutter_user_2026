@@ -31,7 +31,7 @@ class shopDetailsModel {
 }
 
 class Gallery {
-  String? id;
+  int? id;
   String? imge;
 
   Gallery({this.id, this.imge});
@@ -43,8 +43,8 @@ class Gallery {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['imge'] = this.imge;
+    data['id'] = this.id.toString();
+    data['imge'] = this.imge.toString();
     return data;
   }
 }

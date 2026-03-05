@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../Constants.dart';
 import '../../screen/reservations/reservations_controller.dart';
 
 
@@ -22,15 +23,15 @@ class reservationsScreen extends GetWidget<reservationsController> {
     return Scaffold(
         appBar: AppBar(
 
-            title: Text(this.title),
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            ),
-      body: controller.obx((data)
+          title: Text(this.title,style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        body: controller.obx((data)
         =>  data!.reservations!.length > 0 ?ListView.builder(
           itemBuilder: (ctx, index) {
             return Item (
@@ -38,7 +39,7 @@ class reservationsScreen extends GetWidget<reservationsController> {
           },
           itemCount: data.reservations!.length,
         ):noItem(),
-      )
+        )
     );
-      }
-        }
+  }
+}

@@ -19,7 +19,7 @@ class NotificationsController extends GetxController with StateMixin<Notificatio
   void onInit() async{
     // TODO: implement onInit
     super.onInit();
-  await  getNotificationsApi();
+    await  getNotificationsApi();
 
 
   }

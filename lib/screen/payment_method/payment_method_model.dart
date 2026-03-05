@@ -29,7 +29,7 @@ class paymentMethodModel {
 }
 
 class PaymentMethod {
-  String? id;
+  int? id;
   String? imge;
   String? accountName;
   String? accountNumber;
@@ -45,7 +45,7 @@ class PaymentMethod {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
+    data['id'] = this.id.toString();
     data['imge'] = this.imge;
     data['account_name'] = this.accountName;
     data['account_number'] = this.accountNumber;
