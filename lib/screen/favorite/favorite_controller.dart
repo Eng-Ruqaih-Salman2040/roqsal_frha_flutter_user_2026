@@ -12,6 +12,7 @@ import '../../widget/dailog_widget.dart';
 import '../../widget/my_data.dart';
 import '../shop_details/shop_details.dart';
 import '../shop_details/shop_details_controller.dart';
+import 'favorite.dart';
 import 'favorite_model.dart';
 
 class favoriteController extends GetxController with StateMixin<favoriteModel> {
@@ -45,7 +46,7 @@ class favoriteController extends GetxController with StateMixin<favoriteModel> {
           await Get.put(shopDetailsController()).getGalleryApi(shop_id, customers_id);
 
           // العودة للصفحة السابقة
-          Get.off(() => shop_detailsScreen(data));
+          Get.back();
         } else {
           GetSnackMsg(
               msg: responseData['message'] ?? 'حدث خطأ',

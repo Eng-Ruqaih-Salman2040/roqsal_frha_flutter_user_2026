@@ -58,18 +58,16 @@ class _SignUpScreenState extends State<signUpScreen> {
     final isDarkMode = theme.brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: Color(0xF5383D67),
       appBar: AppBar(
         elevation: 0,
-        shadowColor: Colors.black,
+        shadowColor: Colors.white54,
 
         backgroundColor: Colors.transparent,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color: Colors.black45,
+
             size: 22.w,
           ),
           onPressed: () => Get.back(),
@@ -78,9 +76,7 @@ class _SignUpScreenState extends State<signUpScreen> {
         title: Text(
           "إنشاء حساب جديد",
           style: TextStyle(
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color: Colors.black45,
 
             fontSize: 20.sp,
             fontWeight: FontWeight.w700,
@@ -222,11 +218,11 @@ class _SignUpScreenState extends State<signUpScreen> {
                     // Sign Up Button
                     CustomButton(
                       text: 'إنشاء حساب',
-                           color: _termsAccepted ? Color(0xFF9169DA): Colors.grey,
-                           textColor: Colors.white,
-                           sizeHeight: 56.h,
-                           borderRadius: 28.r,
-                         elevation: 3,
+                      color: _termsAccepted ? Color(0xFF9169DA): Colors.grey,
+                      textColor: Colors.white,
+                      sizeHeight: 56.h,
+                      borderRadius: 28.r,
+                      elevation: 3,
                       onPress: () {
                         if (_formKey.currentState!.validate()) {
                           controller.postApi();
@@ -313,12 +309,10 @@ class _SignUpScreenState extends State<signUpScreen> {
         Text(
           "انضم إلينا الآن",
           style: TextStyle(
-            fontSize: 24.sp,
-            fontWeight: FontWeight.w800,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.w800,
 
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+              color: Color(0xFF202020)
 
           ),
         ),
@@ -327,9 +321,8 @@ class _SignUpScreenState extends State<signUpScreen> {
           "أنشئ حسابك واستمتع بجميع المزايا",
           style: TextStyle(
             fontSize: 14.sp,
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color:Color(0xFF202020),
+
 
           ),
           textAlign: TextAlign.center,
@@ -530,7 +523,7 @@ class _SignUpScreenState extends State<signUpScreen> {
 
   Widget _buildPasswordStrengthIndicator(String password) {
     double strength = 0;
-    if (password.length >= 8) strength += 0.3;
+    if (password.length >= 6) strength += 0.3;
     if (RegExp(r'[A-Z]').hasMatch(password)) strength += 0.3;
     if (RegExp(r'[0-9]').hasMatch(password)) strength += 0.3;
     if (RegExp(r'[!@#\$%^&*(),.?":{}|<>]').hasMatch(password)) strength += 0.1;
@@ -682,9 +675,8 @@ class _SignUpScreenState extends State<signUpScreen> {
         Text(
           "لديك حساب بالفعل؟ ",
           style: TextStyle(
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color: Color(0xFF2B2A2A),
+
             fontSize: 14.sp,
           ),
         ),
@@ -720,9 +712,7 @@ class _SignUpScreenState extends State<signUpScreen> {
           child: Text(
             "أو",
             style: TextStyle(
-              color: isDarkMode
-                  ? Colors.white.withOpacity(0.6)
-                  : Colors.white,
+              color: Colors.black54,
               fontSize: 14.sp,
             ),
           ),
@@ -745,7 +735,7 @@ class _SignUpScreenState extends State<signUpScreen> {
         Text(
           "التسجيل عبر",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black54,
             fontSize: 14.sp,
           ),
         ),
@@ -764,32 +754,6 @@ class _SignUpScreenState extends State<signUpScreen> {
                 backgroundColor: Color(0xFF9169DA),
                 colorText: Colors.white,
               );}
-            ),
-            SizedBox(width: 20.w),
-            _buildSocialButton(
-                icon: Icons.facebook_rounded,
-                color: Colors.blue,
-                label: "Facebook",
-                provider: "facebook", onTap: (String provider) {
-              Get.snackbar(
-                "قريباً",
-                "التسجيل عبر $provider سيكون متاحاً قريباً",
-                backgroundColor: Color(0xFF9169DA),
-                colorText: Colors.white,
-              );} // أضف بارامتر provider
-            ),
-            SizedBox(width: 20.w),
-            _buildSocialButton(
-                icon: Icons.apple_rounded,
-                color: Colors.black,
-                label: "Apple",
-                provider: "apple", onTap: (String provider) {
-              Get.snackbar(
-                "قريباً",
-                "التسجيل عبر $provider سيكون متاحاً قريباً",
-                backgroundColor: Color(0xFF9169DA),
-                colorText: Colors.white,
-              );} // أضف بارامتر provider
             ),
           ],
         ),
@@ -852,7 +816,4 @@ class _SignUpScreenState extends State<signUpScreen> {
   }
 }
 
-extension on signUpController {
-  get isLoading => null;
-}
 

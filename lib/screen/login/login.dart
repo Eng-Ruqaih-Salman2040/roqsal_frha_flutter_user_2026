@@ -44,8 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     // Once signed in, return the UserCredential
-     await FirebaseAuth.instance.signInWithCredential(credential);
-     Get.offAllNamed(RoutingApp.dashBoardScreenRoute);
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    Get.offAllNamed(RoutingApp.dashBoardScreenRoute);
   }
 
 
@@ -83,18 +83,17 @@ class _LoginScreenState extends State<LoginScreen> {
     final isDarkMode = theme.brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: Color(0xF5383D67),
       appBar: AppBar(
         elevation: 0,
-        shadowColor: Colors.black,
+        shadowColor: Colors.white54,
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Colors.white ,
-          ),
-          onPressed: () => Get.back(),
-        ),
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.arrow_back_ios_new_rounded,
+        //     color: Colors.white ,
+        //   ),
+        //   onPressed: () => Get.back(),
+        // ),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 16.w),
@@ -299,34 +298,34 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Logo with gradient
-    Center(
-    child: Container(
-    width: 130.w,
-      height: 130.w,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFAC7FFF),
-            Color(0xFF4697FF),
-          ],
-        ),
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xFFAC7FFF).withOpacity(0.3),
-            blurRadius: 20,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Center(
-              child: Image.asset(
-                "assets/logoo.png",
-                width: 150, height: 150,
+        Center(
+          child: Container(
+              width: 130.w,
+              height: 130.w,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFFAC7FFF),
+                    Color(0xFF4697FF),
+                  ],
+                ),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFFAC7FFF).withOpacity(0.3),
+                    blurRadius: 20,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
-            ) ),
+              child: Center(
+                child: Image.asset(
+                  "assets/logoo.png",
+                  width: 150, height: 150,
+                ),
+              ) ),
         ),
 
         SizedBox(height: 24.h),
@@ -337,9 +336,8 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(
             fontSize: 32.sp,
             fontWeight: FontWeight.bold,
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color: Color(0xFF050505),
+
             height: 1.2,
           ),
         ),
@@ -350,9 +348,8 @@ class _LoginScreenState extends State<LoginScreen> {
           "سجل دخولك للاستمرار في استخدام التطبيق فرحة",
           style: TextStyle(
             fontSize: 16.sp,
-            color: isDarkMode
-                ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+            color: Color(0xFF1C1C1C),
+
           ),
         ),
       ],
@@ -410,7 +407,7 @@ class _LoginScreenState extends State<LoginScreen> {
             boxShadow: focusNode.hasFocus
                 ? [
               BoxShadow(
-                color: Color(0xFFAC7FFF).withOpacity(0.2),
+                color: Color(0xF59197CF).withOpacity(0.2),
                 blurRadius: 10,
                 spreadRadius: 1,
               ),
@@ -512,26 +509,6 @@ class _LoginScreenState extends State<LoginScreen> {
             signInWithGoogle();
           },
         ),
-        SizedBox(width: 16.w),
-
-        // Facebook Button
-        _buildSocialButton(
-          icon: Icons.facebook_rounded,
-          color: Colors.blue,
-          onTap: () {
-            // TODO: Implement Facebook login
-          },
-        ),
-        SizedBox(width: 16.w),
-
-        // Twitter Button
-        _buildSocialButton(
-          icon: Icons.circle_rounded,
-          color: Colors.lightBlue,
-          onTap: () {
-            // TODO: Implement Twitter login
-          },
-        ),
       ],
     );
   }
@@ -576,7 +553,7 @@ class _LoginScreenState extends State<LoginScreen> {
           style: TextStyle(
             color: isDarkMode
                 ? Colors.white.withOpacity(0.6)
-                : Colors.white,
+                : Colors.black38,
             fontWeight: FontWeight.w600,
             fontSize: 14.sp,
           ),
@@ -594,8 +571,8 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFFAC7FFF).withOpacity(0.9),
-                  Color(0xFFFFBBF0).withOpacity(0.1),
+                  Color(0xF59197CF).withOpacity(0.9),
+                  Color(0xF5243083).withOpacity(0.1),
 
 
                 ],
@@ -604,7 +581,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               borderRadius: BorderRadius.circular(20.r),
               border: Border.all(
-                color: Color(0xFFAC7FFF).withOpacity(0.3),
+                color: Color(0xF59197CF).withOpacity(0.3),
                 width: 1,
               ),
             ),
@@ -626,8 +603,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   size: 18.w,
                 ),
               ],
-            ),
-          ),
+            ),          ),
         ),
       ],
     );

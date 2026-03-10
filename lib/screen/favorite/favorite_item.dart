@@ -55,7 +55,7 @@ class FavoriteItem extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('تأكيد الحذف'),
-          content: const Text('هل أنت متأكد من إزالة هذا المتجر من المفضلة؟'),
+          content: const Text('هل أنت متأكد من إزالة هذا من المفضلة؟'),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
