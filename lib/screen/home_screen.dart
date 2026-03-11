@@ -13,7 +13,7 @@ import '../widget/customButton.dart';
 import '../widget/menu_widget2.dart';
 import '../widget/my_text.dart';
 import '../widget/scrolling_photo.dart';
-import 'aiscreen/chatbot_scerrn.dart';
+import 'aiscreen/chatbot_screen.dart';
 import 'allShop/allShop.dart';
 import 'allShop/allShop_controller.dart';
 import 'login/login_model.dart';
@@ -941,12 +941,12 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
           onPressed: () async {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const SimpleChatScreen();
+              return const Screen_Ai();
             }));
           },
           elevation: 10,
           backgroundColor: Color(0xFFFFFFFF),
-          tooltip: "Chat with Broxi",
+          tooltip: "Chat bot",
           child: Icon(Iconsax.device_message,
             color: Color(0xF57E87CD),
           )),
