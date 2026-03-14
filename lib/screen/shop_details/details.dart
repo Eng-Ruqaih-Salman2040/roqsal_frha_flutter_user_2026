@@ -626,6 +626,7 @@ class SliderImageHeaderRouteState extends State<SliderImageHeaderRoute> {
                               border: Border.all(color: Colors.grey[200]!),
                             ),
                             child: ClipRRect(
+
                               borderRadius: BorderRadius.circular(16.r),
                               child: GoogleMap(
                                 mapType: MapType.normal,
@@ -937,7 +938,7 @@ class SliderImageHeaderRouteState extends State<SliderImageHeaderRoute> {
                   color: Colors.white,
                 ),
               )
-                  : Text('إرسال',style: TextStyle(color: Color(0xF50B0B10),),),
+                  : Text('إرسال',style: TextStyle(color: Color(0xF5FFFFFF),),),
             )),
           ],
         );
