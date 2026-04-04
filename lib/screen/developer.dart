@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Constants.dart';
 import '../widget/my_colors.dart';
 import '../widget/my_text.dart';
 
@@ -20,14 +21,14 @@ class DeveloperRouteState extends State<DeveloperRoute> {
       backgroundColor: MyColors.grey_5,
       appBar: AppBar(
 
-          title: Text("المطورين"),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          ),
+        title: Text("المطورين",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
 
       body: SingleChildScrollView(
         child: Padding(
@@ -48,7 +49,7 @@ class DeveloperRouteState extends State<DeveloperRoute> {
                       Container(height: 5),
                       Center(
                         child: Container(width: 30, height: 5, decoration: BoxDecoration(
-                          color: Color(0xFF1D98B3),
+                          color: Color(0xF59197CF),
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                         )),
                       ),
@@ -105,14 +106,14 @@ class DeveloperRouteState extends State<DeveloperRoute> {
                       Container(height: 5),
                       Center(
                         child: Container(width: 30, height: 5, decoration: BoxDecoration(
-                          color: Color(0xFF1D98B3),
+                          color: Color(0xF59197CF),
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                         )),
                       ),
                       Container(height: 15),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 5),
-                        child: Text("طلاب جامعة الرازي ...........................", textAlign : TextAlign.justify, style: MyText.body2(context)?.copyWith(
+                        child: Text("طلاب جامعة الرازي .......................", textAlign : TextAlign.justify, style: MyText.body2(context)?.copyWith(
                           color: MyColors.grey_60, fontWeight: FontWeight.w300,
                         )),
                       ),

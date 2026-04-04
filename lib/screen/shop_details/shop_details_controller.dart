@@ -32,11 +32,11 @@ class shopDetailsController extends GetxController with StateMixin<shopDetailsMo
 
 
       if(value.statusCode==200) {
- print("aa");
+        print("aa");
 
-print(value.data);
+        print(value.data);
 
- shopDetailsModel data =  shopDetailsModel.fromJson(json.decode(value.data));
+        shopDetailsModel data =  shopDetailsModel.fromJson(json.decode(value.data));
 
 
         print(value.data);

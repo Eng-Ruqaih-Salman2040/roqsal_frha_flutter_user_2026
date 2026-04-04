@@ -91,7 +91,7 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
 
     return new Scaffold(
 
-      backgroundColor: Color(0xF5383D67),
+      backgroundColor: Color(0xFFF8F8F8),
       appBar: PreferredSize(preferredSize: Size.fromHeight(0), child: Container(color: Colors.grey[100])),
       body: Container(
         width: double.infinity, height: double.infinity,
@@ -107,7 +107,7 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("تخطي",style:TextStyle(color:Colors.white) ,),
+                      child: Text("تخطي",style:TextStyle(color:Colors.black) ,),
                     ),
                   ),
                 ],
@@ -132,11 +132,11 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
               Container(
                 width: double.infinity, height: 50,
                 margin: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10),
-                  child: TextButton(
+                child: TextButton(
                   child: Text(isLast ? "البدء" : "التالي", style: Theme.of(context).textTheme.titleMedium!.copyWith(color:Colors.white),),
-                    style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(
-                      0xff9269dd)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(
+                          0xF59197CF)),
                   onPressed: (){
                     if(isLast){
                       // GetStorage().write(intro, true);
@@ -181,13 +181,13 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
                         Container(height: 30),
                         Expanded(
                           child: Image.asset("assets/"+wz.image, width: 150, height: 150,color: Color(
-                              0xff9269dd),),
+                              0xF59197CF),),
                         ),
-                        Text(wz.title, style: Theme.of(context).textTheme.titleLarge!.copyWith(color:Colors.white),),
+                        Text(wz.title, style: Theme.of(context).textTheme.titleLarge!.copyWith(color:Colors.black87),),
                         Container(height: 10),
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                          child: Text(wz.brief, textAlign : TextAlign.center, style: Theme.of(context).textTheme.titleMedium!.copyWith(color:Colors.white),),
+                          child: Text(wz.brief, textAlign : TextAlign.center, style: Theme.of(context).textTheme.titleMedium!.copyWith(color:Colors.black87),),
                         ),
                         Container(height: 20),
 
@@ -226,7 +226,7 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
                           Container(height: 30),
                           Expanded(
                             child: Image.asset("assets/"+wz.image, width: 150, height: 150,color: Color(
-                                0xff2c878a),),
+                                0xF59197CF),),
                           ),
                           Text(wz.title, style: Theme.of(context).textTheme.titleLarge),
                           Container(height: 10),
@@ -261,7 +261,7 @@ class CardWizardOverlapRouteState extends State<CardWizardOverlapRoute> {
         width: 8,
         child: CircleAvatar(
           backgroundColor: page == i ? Color(
-              0xff2c878a) : Color(0xFFcccccc),
+              0xF59197CF) : Color(0xFFcccccc),
         ),
       );
       dots.add(w);

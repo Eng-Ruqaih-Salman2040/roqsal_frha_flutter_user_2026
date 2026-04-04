@@ -23,7 +23,7 @@ class TabsScrollRouteState extends State<HelpScreen> with SingleTickerProviderSt
 
   late TabController _tabController;
   late ScrollController _scrollController;
- Widget _getDetails1(BuildContext context){
+  Widget _getDetails1(BuildContext context){
     Widget widget;
     widget =   ListView.builder(
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.w),
@@ -61,8 +61,8 @@ class TabsScrollRouteState extends State<HelpScreen> with SingleTickerProviderSt
                 width: double.infinity,
                 child: Text('1. كيف يمكنك مواكبة التطورات في سوقك المستهدفة؟',style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white),)),
             Padding(
-              padding:  EdgeInsets.all(10.0.r),
-      child: Text('حتى لو كان السوق المستهدف الذي عمل فيه سابقًا مختلفًا عن السوق المستهدف الحالي، فمن المهم تكوين فكرة عن مقدار فهمه لنشاط شركتك، ولاحتياجات عملائها. هل يواكب التطورات من خلال قراءة مدونة، أم بالاستماع إلى البودكاست، أو بمتابعة بعض المؤثرين على تويتر؟ اكتشف ذلك.',style: Theme.of(context).textTheme.headlineMedium,)
+                padding:  EdgeInsets.all(10.0.r),
+                child: Text('حتى لو كان السوق المستهدف الذي عمل فيه سابقًا مختلفًا عن السوق المستهدف الحالي، فمن المهم تكوين فكرة عن مقدار فهمه لنشاط شركتك، ولاحتياجات عملائها. هل يواكب التطورات من خلال قراءة مدونة، أم بالاستماع إلى البودكاست، أو بمتابعة بعض المؤثرين على تويتر؟ اكتشف ذلك.',style: Theme.of(context).textTheme.headlineMedium,)
 
             ),
 
@@ -136,33 +136,33 @@ class TabsScrollRouteState extends State<HelpScreen> with SingleTickerProviderSt
   }
   Widget buildSpeedDial() {
     return SpeedDial(
-        elevation: 2,
-        animatedIcon: AnimatedIcons.menu_close,
-        curve: Curves.linear,
-       // animationSpeed: 100,
+      elevation: 2,
+      animatedIcon: AnimatedIcons.menu_close,
+      curve: Curves.linear,
+      // animationSpeed: 100,
       animationDuration : const Duration(milliseconds: 150),
-        overlayColor: Colors.black,
-        overlayOpacity: 0.2,
-        backgroundColor: MyColors.primary,
-        children: [
+      overlayColor: Colors.black,
+      overlayOpacity: 0.2,
+      backgroundColor: MyColors.primary,
+      children: [
 
-          SpeedDialChild(
-            elevation: 2,
-            label:"Sale order".tr,
-            child: Icon(Icons.volunteer_activism, color: MyColors.grey_80),
-            backgroundColor: Colors.white,
-            onTap: () {
-              Get.toNamed(RoutingApp.SellOrderRoute);
-            },
-          ),
-          SpeedDialChild(
-            elevation: 2,
-            label: "Sales return".tr,
-            child: Icon(Icons.archive_outlined, color: MyColors.grey_80),
-            backgroundColor: Colors.white,
-            onTap: () {},
-          ),
-        ],
+        SpeedDialChild(
+          elevation: 2,
+          label:"Sale order".tr,
+          child: Icon(Icons.volunteer_activism, color: MyColors.grey_80),
+          backgroundColor: Colors.white,
+          onTap: () {
+            Get.toNamed(RoutingApp.SellOrderRoute);
+          },
+        ),
+        SpeedDialChild(
+          elevation: 2,
+          label: "Sales return".tr,
+          child: Icon(Icons.archive_outlined, color: MyColors.grey_80),
+          backgroundColor: Colors.white,
+          onTap: () {},
+        ),
+      ],
     );
   }
 

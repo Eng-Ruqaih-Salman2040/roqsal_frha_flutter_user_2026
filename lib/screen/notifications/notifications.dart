@@ -7,14 +7,9 @@ import '../../widget/my_text.dart';
 import '../../widget/noitem.dart';
 import 'notifications_contraller.dart';
 
-
 class NotificationsScreen extends GetWidget<NotificationsController> {
-
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       appBar:   AppBar(
         title: Text( 'الأشعارات',style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
@@ -24,60 +19,251 @@ class NotificationsScreen extends GetWidget<NotificationsController> {
         //     child:  Image.asset('assets/menu.png',width: 30.r,height: 30.r,))),
       ),
       drawer: drawerWidget(),
-      body: controller.obx((notifications)=>
-      notifications!.notifications!.isNotEmpty ?ListView.builder(
-            itemBuilder: (ctx, index) {
-              return Card(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Container(width: 20),
-                      Container(
-                          child:  Icon(
-                            Icons.notifications_active_outlined,
-                            color: Colors.deepPurpleAccent,
-                            size: 25.r,
-                          ),
-
-                          width: 50,
-                          height: 50
-                      ),
-                      Container(width: 20),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              notifications.notifications![index].note.toString(),
-                              style: MyText.title(context)!.copyWith(
-                                  color: Colors.white70,
-                                  fontWeight: FontWeight.normal
-                              ),
-                            ),
-                            Container(height: 5),
-                            Text(
-                              notifications.notifications![index].date_create.toString()+"    "+notifications.notifications![index].time_create.toString(),
-                              maxLines: 2,
-                              style: MyText.subhead(context)!.copyWith(
-                                  color: Colors.grey
-                              ),
-                            ),
-                            Container(height: 15),
-                            Divider(color: Colors.grey[300], height: 0),
-                          ],
-                        ),
+      body: Container(
+        // color: Color(0xFFF8F9FA),
+        child: controller.obx(
+              (notifications) => notifications!.notifications!.isNotEmpty
+              ? RefreshIndicator(
+            color: Colors.deepPurple,
+            backgroundColor: Colors.white,
+            onRefresh: () async {
+              await controller.getNotificationsApi();
+            },
+            child: ListView.separated(
+              physics: AlwaysScrollableScrollPhysics(),
+              padding: EdgeInsets.symmetric(vertical: 16.h),
+              itemCount: notifications.notifications!.length,
+              separatorBuilder: (context, index) => SizedBox(height: 8.h),
+              itemBuilder: (ctx, index) {
+                return _buildNotificationCard(
+                  context: context,
+                  notification: notifications.notifications![index],
+                  index: index,
+                );
+              },
+            ),
+          )
+              : Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 120.w,
+                  height: 120.w,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 16,
+                        spreadRadius: 2,
                       ),
                     ],
                   ),
+                  child: Icon(
+                    Icons.notifications_none_rounded,
+                    size: 50.w,
+                    color: Colors.deepPurple.withOpacity(0.5),
+                  ),
                 ),
-              );
-            },
-            itemCount: notifications.notifications!.length,
-          )
-              :noItem(),
+                SizedBox(height: 20.h),
+                Text(
+                  'لا توجد إشعارات',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Color(0xFF2D3748),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.w),
+                  child: Text(
+                    'ستظهر هنا جميع الإشعارات عند توفرها',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: Color(0xFF718096),
+                      height: 1.5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          onLoading: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 40.w,
+                  height: 40.w,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 3,
+                    color: Colors.deepPurple,
+                  ),
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'جاري التحميل...',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Color(0xFF718096),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          onError: (error) => Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.error_outline_rounded,
+                  size: 60.w,
+                  color: Colors.red,
+                ),
+                SizedBox(height: 16.h),
+                Text(
+                  'حدث خطأ في التحميل',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    color: Color(0xFF2D3748),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40.w),
+                  child: Text(
+                    error ?? 'يرجى المحاولة مرة أخرى',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: Color(0xFF718096),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                ElevatedButton(
+                  onPressed: () {
+                    controller.getNotificationsApi();
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.r),
+                    ),
+                  ),
+                  child: Text('إعادة المحاولة'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNotificationCard({
+    required BuildContext context,
+    required dynamic notification,
+    required int index,
+  }) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            // يمكن إضافة تفعيل للإشعار عند الضغط
+          },
+          borderRadius: BorderRadius.circular(12.r),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.04),
+                  blurRadius: 8.r,
+                  offset: Offset(0, 2.r),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 44.w,
+                    height: 44.w,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.notifications_active_rounded,
+                        color: Colors.deepPurpleAccent,
+                        size: 22.w,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 12.w),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          notification.note.toString(),
+                          style: MyText.title(context)!.copyWith(
+                            color: Color(0xFF2D3748),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15.sp,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 6.h),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.access_time_rounded,
+                              size: 14.sp,
+                              color: Color(0xFF718096),
+                            ),
+                            SizedBox(width: 4.w),
+                            Text(
+                              notification.date_create.toString() + " • " + notification.time_create.toString(),
+                              style: MyText.subhead(context)!.copyWith(
+                                color: Color(0xFF718096),
+                                fontSize: 12.sp,
+                              ),
+                            ),
+                            Spacer(),
+                            Container(
+                              width: 8.w,
+                              height: 8.w,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.deepPurpleAccent,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

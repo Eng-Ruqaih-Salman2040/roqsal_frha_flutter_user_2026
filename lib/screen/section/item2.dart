@@ -8,7 +8,7 @@ import '../shop/shop.dart';
 import '../shop/shop_controller.dart';
 
 class  Item extends StatelessWidget {
-    var data;
+  var data;
 
   Item(  this.data );
 
@@ -22,7 +22,7 @@ class  Item extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return 
+    return
       InkWell(
         onTap:()=> select(context),
         splashColor: Theme.of(context).primaryColor,
@@ -99,7 +99,7 @@ class  Item extends StatelessWidget {
         // )
 
       );
-        
+
   }
 }
 

@@ -1,11 +1,10 @@
 import 'dart:async';
 
-//import 'package:android_studio_projects/screen/card_wizard_overlap.dart' show CardWizardOverlapRoute;
-import 'screen/card_wizard_overlap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:roqsal_frha_flutter2026/screen/card_wizard_overlap.dart';
 import '../../router/route_constants.dart';
 import '../../screen/allShop/allShop_controller.dart';
 import '../../screen/favorite/favorite_controller.dart';
@@ -15,7 +14,6 @@ import '../../screen/notifications/notifications_contraller.dart';
 import '../../screen/section/section_controller.dart';
 import '../../screen/sliderAds/ads_controller.dart';
 import '../../widget/my_data.dart';
-
 
 
 class SplashScreen extends StatefulWidget {
@@ -30,13 +28,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-   true;
+    true;
     GetStorage().read('store')!=null? MyData.auth_user=true:  MyData.auth_user=false;
     // GetStorage().read('store')!=null? MyData.auth_user=true:  MyData.auth_user=false;
     Timer(
         Duration(seconds: 2),
             () =>
-            MyData.auth_user? Get.offAllNamed(RoutingApp.dashBoardScreenRoute,):  Get.to(CardWizardOverlapRoute(),transition: Transition.leftToRight,duration:Duration(seconds: 1 )));
+        MyData.auth_user? Get.offAllNamed(RoutingApp.dashBoardScreenRoute,):  Get.to(CardWizardOverlapRoute(),transition: Transition.leftToRight,duration:Duration(seconds: 1 )));
 
 
     Get.put(sectionController());
@@ -56,10 +54,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
       body:   Container(
         height: 1.sh,
-    width: 1.sw,
-    decoration: BoxDecoration(
-    image:DecorationImage(image: AssetImage('assets/splash1.png'),fit: BoxFit.cover,)
-    ),),
+        width: 1.sw,
+        decoration: BoxDecoration(
+            image:DecorationImage(image: AssetImage('assets/splash11.png'),fit: BoxFit.cover,)
+        ),),
     );
   }
 }

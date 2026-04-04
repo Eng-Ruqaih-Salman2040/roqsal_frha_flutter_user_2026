@@ -1,12 +1,14 @@
 
 
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:roqsal_frha_flutter2026/firebase_options.dart';
 import '../../Constants.dart';
 import '../../splash_screen.dart';
 import '../../language/translations.dart';
@@ -18,12 +20,12 @@ import 'apiservice/checkInterNet.dart';
 
 void main() async{
 
-
   await GetStorage.init();
 
   Get.put(CheckInterNet());
 
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   // runApp(MaterialApp(debugShowCheckedModeBanner: false,home: MyApp()));

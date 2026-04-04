@@ -128,7 +128,7 @@ const Color test1_color2_600 = Color(0xFF7D4F52);
 
 const Color test1_color_ErrorRed = Color(0xFFC5032B);
 
-const Color test1_colorSurfaceWhite = Color(0xF5383D67);
-const Color test1_colorBackgroundWhite = Color(0xF5383D67);
+const Color test1_colorSurfaceWhite = Color(0xFFF3EFEF);
+const Color test1_colorBackgroundWhite = Color(0xFFF8F8F8);
 
 

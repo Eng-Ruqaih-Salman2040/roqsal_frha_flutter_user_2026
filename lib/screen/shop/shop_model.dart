@@ -57,22 +57,22 @@ class Shop {
         this.price,
         this.viewer});
 
-  factory Shop.fromJson(Map<String, dynamic> json) {
-    return Shop(
-      // تأكد أن جميع الخصائص النصية تأخذ قيم نصية
-      id: json['id']?.toString() ?? '', // التحويل إلى نص
-      price: json['price']?.toString() ?? '', // التحويل إلى نص
-      viewer: json['viewer']?.toString() ?? '', // التحويل إلى نص
-      phone: json['phone']?.toString() ?? '', // التحويل إلى نص
-      email: json['email']?.toString() ?? '', // التحويل إلى نص
-      cityName: json['cityName']?.toString() ?? '',
-      adress: json['adress']?.toString() ?? '',
-      sectionName: json['sectionName']?.toString() ?? '',
-      description: json['description']?.toString() ?? '',
-      image: json['image']?.toString() ?? '',
-      // ... باقي الخصائص
-    );
+  Shop.fromJson(Map<String, dynamic> json) {
+    id = json['id']?.toString();
+    userName = json['user_name']?.toString();
+    passowrd = json['passowrd']?.toString();
+    nameShop = json['name_shop']?.toString();
+    cityName = json['city_name']?.toString();
+    sectionName = json['section_name']?.toString();
+    adress = json['adress']?.toString();
+    email = json['email']?.toString();
+    phone = json['phone']?.toString() ?? '';
+    image = json['image']?.toString();
+    description = json['description']?.toString();
+    price = json['price']?.toString();
+    viewer = json['viewer']?.toString();
   }
+
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

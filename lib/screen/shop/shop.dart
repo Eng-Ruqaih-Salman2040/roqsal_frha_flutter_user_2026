@@ -23,24 +23,24 @@ class shopScreen extends GetWidget<shopController> {
     return Scaffold(
         appBar: AppBar(
 
-            title: Text(this.title,style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back,color: Colors.white,),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            ),
-      body: controller.obx((data)
+          title: Text(this.title,style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back,color: Colors.white,),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        body: controller.obx((data)
         =>  data!.shop!.length > 0 ? ListView.builder(
           itemBuilder: (ctx, index) {
-    return Item (
-    data.shop![index]);
-    },
-      itemCount: data.shop!.length,
-    ):noItem(),
+            return Item (
+                data.shop![index]);
+          },
+          itemCount: data.shop!.length,
+        ):noItem(),
 
-      )
+        )
     );
-      }
-        }
+  }
+}

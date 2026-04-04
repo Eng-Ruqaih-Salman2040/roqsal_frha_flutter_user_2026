@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '976755501640',
     projectId: 'roqsal-frha-flutter2026',
     storageBucket: 'roqsal-frha-flutter2026.firebasestorage.app',
+    androidClientId: '976755501640-9k6km2tunvg33b98teots1pju2nq3fml.apps.googleusercontent.com',
+    iosClientId: '976755501640-6pmjmrjk28erj7o91peq6u1m026oep0t.apps.googleusercontent.com',
     iosBundleId: 'com.example.roqsalFrhaFlutter2026',
   );
 
@@ -72,6 +74,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '976755501640',
     projectId: 'roqsal-frha-flutter2026',
     storageBucket: 'roqsal-frha-flutter2026.firebasestorage.app',
+    androidClientId: '976755501640-9k6km2tunvg33b98teots1pju2nq3fml.apps.googleusercontent.com',
+    iosClientId: '976755501640-6pmjmrjk28erj7o91peq6u1m026oep0t.apps.googleusercontent.com',
     iosBundleId: 'com.example.roqsalFrhaFlutter2026',
   );
 
@@ -83,4 +87,5 @@ class DefaultFirebaseOptions {
     authDomain: 'roqsal-frha-flutter2026.firebaseapp.com',
     storageBucket: 'roqsal-frha-flutter2026.firebasestorage.app',
   );
+
 }

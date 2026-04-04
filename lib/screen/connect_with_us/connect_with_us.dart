@@ -31,7 +31,7 @@ class TabsScrollRouteState extends State<ConnectWithUsScreen> with SingleTickerP
     TextStyle textStyle = TextStyle(color: Colors.black, height: 1.4, fontSize: 16);
     TextStyle labelStyle = TextStyle(color: Colors.black);
     UnderlineInputBorder lineStyle1 = UnderlineInputBorder(borderSide: BorderSide(color: Colors.black, width: 1));
-    UnderlineInputBorder lineStyle2 = UnderlineInputBorder(borderSide: BorderSide(color: Colors.deepPurpleAccent, width: 2));
+    UnderlineInputBorder lineStyle2 = UnderlineInputBorder(borderSide: BorderSide(color: Color(0xF59197CF), width: 2));
 
 
     return Scaffold(
@@ -39,11 +39,11 @@ class TabsScrollRouteState extends State<ConnectWithUsScreen> with SingleTickerP
         title: Text( 'تواصل معنا',style: Theme.of(context).textTheme.displayLarge!.copyWith(color: kColorsWhite),),centerTitle: true,elevation: 0,
 
         // leading: IconButton(
-          //   icon: Icon(Icons.arrow_back),
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   }
-          // ),
+        //   icon: Icon(Icons.arrow_back),
+        //   onPressed: () {
+        //     Navigator.pop(context);
+        //   }
+        // ),
 
       ),
       drawer: drawerWidget(),
@@ -94,7 +94,7 @@ class TabsScrollRouteState extends State<ConnectWithUsScreen> with SingleTickerP
                   ),
                   Container(height: 30),
                   CustomButton(
-                    color: Color(0xFFAC7FFF),
+                    color: Color(0xF59197CF),
                     text: "Send".tr,
                     onPress: () {
                       // GetStorage().remove(url);

@@ -12,7 +12,20 @@
           "package_name": "com.example.roqsal_frha_flutter2026"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "976755501640-9k6km2tunvg33b98teots1pju2nq3fml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roqsal_frha_flutter2026",
+            "certificate_hash": "4ab3aa4cdbfda9eb7fc45f518ca80f192911c0d9"
+          }
+        },
+        {
+          "client_id": "976755501640-tngnf2m2b0l5ig1js3gqo6ovacsvm7m3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBg1cFx6t9j0C3z43tbhLo8oWKx149BcyU"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "976755501640-tngnf2m2b0l5ig1js3gqo6ovacsvm7m3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "976755501640-6pmjmrjk28erj7o91peq6u1m026oep0t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.roqsalFrhaFlutter2026"
+              }
+            }
+          ]
         }
       }
     }
